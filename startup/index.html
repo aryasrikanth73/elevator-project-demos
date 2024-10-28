@@ -38,6 +38,73 @@
     </div>
     <!-- Spinner End -->
 
+    <!-- Lift Image Section Start -->
+    <style>
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+        html {
+            scrollbar-width: none;
+        }
+        body {
+            -ms-overflow-style: none;
+        }
+        .lift-section {
+            position: fixed;
+            right: 5px;
+            top: 55px;
+            transition: top 0.5s ease;
+            z-index: 1000;
+        }
+        .lift-image {
+            width: 50px;
+            height: auto;
+        }
+        @media (min-width: 992px) { /* Adjust size for desktop */
+            .lift-image {
+                width: 100px; /* Increase size for desktop */
+            }
+        }
+        @media (min-width: 992px) { /* Adjust size for desktop */
+            .lift-image {
+                width: 100px; /* Increase size for desktop */
+            }
+        }
+    </style>
+    <div class="lift-section">
+        <img src="lift.gif" alt="Lift" class="lift-image" />
+    </div>
+    <script>
+        const liftImage = document.querySelector('.lift-image');
+        const originalSrc = 'lift.gif';
+        const newSrc = 'lift.png';
+        let scrollTimeout;
+            
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY; 
+            const documentHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
+            const liftSection = document.querySelector('.lift-section');
+        
+            // Calculate the lift's position based on the scroll proportion
+            const liftPosition = (scrollY / documentHeight) * (window.innerHeight - liftSection.offsetHeight);
+            liftSection.style.top = liftPosition + 'px'; 
+        
+            // Change image based on scroll position
+            if (scrollY > 100) {
+                liftImage.src = newSrc;
+            } else {
+                liftImage.src = originalSrc;
+            }
+        
+            // Reset image after a short delay
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                liftImage.src = originalSrc;
+            }, 200); 
+        });
+    </script>
+    <!-- Lift Image Section End -->
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
