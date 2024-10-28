@@ -29,26 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    <style>
-        .lift-section {
-    position: fixed; /* Keep the image fixed on the right side */
-    right: 20px; /* Distance from the right edge */
-    top: 20px; /* Initial position from the top */
-    transition: top 0.5s ease; /* Smooth transition */
-    z-index: 1000; /* Ensure it appears above other elements */
-}
-
-
-.lift-image {
-    width: 50px; /* Set a small size for the image */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.lift-image.visible {
-    bottom: 0; /* Move it into view */
-}
-
-    </style>
+    
 </head>
 
 <body>
@@ -57,23 +38,72 @@
         <div class="spinner"></div>
     </div>
     <!-- Spinner End -->
+    <style>
+        /* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+    width: 0; /* Hide horizontal scrollbar */
+    height: 0; /* Hide vertical scrollbar */
+}
 
+/* For Firefox */
+html {
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* For IE and Edge */
+body {
+    -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
+}
+
+        .lift-section {
+            position: fixed; /* Keep the image fixed on the right side */
+            right: 10px; /* Distance from the right edge */
+            top: 20px; /* Initial position from the top */
+            transition: top 0.5s ease; /* Smooth transition */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+        
+        .lift-image {
+            width: 50px; /* Set a small size for the image */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+    
     <!-- Lift Image Section Start -->
     <div class="lift-section">
-        <img src="lift-2.gif" alt="Lift" class="lift-image" />
+        <img src="lift.gif" alt="Lift" class="lift-image" />
     </div>
     <!-- Lift Image Section End -->
-
+    
     <script>
+        const liftImage = document.querySelector('.lift-image');
+        const originalSrc = 'lift.gif';
+        const newSrc = 'lift.png';
+        let scrollTimeout;
+    
         window.addEventListener('scroll', function() {
-            const liftImage = document.querySelector('.lift-section');
             const scrollY = window.scrollY; // Get the current scroll position
     
             // Adjust the top position of the lift image based on scroll position
-            liftImage.style.top = `${Math.min(scrollY + 20, window.innerHeight - 70)}px`; // Keep it within the viewport
+            const newTop = Math.min(scrollY + 20, window.innerHeight - 70);
+            document.querySelector('.lift-section').style.top = newTop + 'px'; // Keep it within the viewport
+    
+            // Change the image source based on scroll position
+            if (scrollY > 100) {
+                liftImage.src = newSrc;
+            } else {
+                liftImage.src = originalSrc;
+            }
+    
+            // Clear the timeout if scrolling continues
+            clearTimeout(scrollTimeout);
+    
+            // Set a timeout to revert the image when scrolling stops
+            scrollTimeout = setTimeout(() => {
+                liftImage.src = originalSrc;
+            }, 200); // Adjust this value for the delay before switching back
         });
     </script>
-    
     
 
     <!-- Topbar Start -->
