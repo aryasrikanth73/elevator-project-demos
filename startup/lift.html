@@ -53,8 +53,8 @@
         }
         .lift-section {
             position: fixed;
-            right: 10px;
-            top: 50px;
+            right: 5px;
+            top: 55px;
             transition: top 0.5s ease;
             z-index: 1000;
         }
@@ -75,7 +75,7 @@
         window.addEventListener('scroll', function() {
             const scrollY = window.scrollY; 
             
-            const newTop = Math.min(scrollY + 20, window.innerHeight - 70);
+            const newTop = Math.min(scrollY + 50, window.innerHeight - 70);
             document.querySelector('.lift-section').style.top = newTop + 'px'; 
             
             if (scrollY > 100) {
