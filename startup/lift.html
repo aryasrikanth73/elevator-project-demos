@@ -54,7 +54,7 @@
         .lift-section {
             position: fixed;
             right: 10px;
-            top: 20px;
+            top: 50px;
             transition: top 0.5s ease;
             z-index: 1000;
         }
@@ -67,32 +67,29 @@
         <img src="lift.gif" alt="Lift" class="lift-image" />
     </div>
     <script>
-const liftImage = document.querySelector('.lift-image');
-const originalSrc = 'lift.gif';
-const newSrc = 'lift.png';
-let scrollTimeout;
-
-window.addEventListener('scroll', function() {
-    const scrollY = window.scrollY; 
+        const liftImage = document.querySelector('.lift-image');
+        const originalSrc = 'lift.gif';
+        const newSrc = 'lift.png';
+        let scrollTimeout;
     
-    // Update the top position of the lift image based on scroll position
-    document.querySelector('.lift-section').style.top = `${scrollY + 20}px`; // Keep it directly related to scroll position
-    
-    // Change the image source based on scroll position
-    if (scrollY > 100) {
-        liftImage.src = newSrc;
-    } else {
-        liftImage.src = originalSrc;
-    }
-
-    // Clear the timeout if scrolling continues
-    clearTimeout(scrollTimeout);
-
-    // Set a timeout to revert the image when scrolling stops
-    scrollTimeout = setTimeout(() => {
-        liftImage.src = originalSrc;
-    }, 200); 
-});
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY; 
+            
+            const newTop = Math.min(scrollY + 20, window.innerHeight - 70);
+            document.querySelector('.lift-section').style.top = newTop + 'px'; 
+            
+            if (scrollY > 100) {
+                liftImage.src = newSrc;
+            } else {
+                liftImage.src = originalSrc;
+            }
+            
+            clearTimeout(scrollTimeout);
+            
+            scrollTimeout = setTimeout(() => {
+                liftImage.src = originalSrc;
+            }, 200); 
+        });
     </script>
     <!-- Lift Image Section End -->
 
