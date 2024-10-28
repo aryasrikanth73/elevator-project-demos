@@ -38,73 +38,63 @@
         <div class="spinner"></div>
     </div>
     <!-- Spinner End -->
+
+    <!-- Lift Image Section Start -->
     <style>
-        /* Hide scrollbar for all elements */
-::-webkit-scrollbar {
-    width: 0; /* Hide horizontal scrollbar */
-    height: 0; /* Hide vertical scrollbar */
-}
-
-/* For Firefox */
-html {
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-}
-
-/* For IE and Edge */
-body {
-    -ms-overflow-style: none; /* Hide scrollbar for Internet Explorer and Edge */
-}
-
-        .lift-section {
-            position: fixed; /* Keep the image fixed on the right side */
-            right: 10px; /* Distance from the right edge */
-            top: 20px; /* Initial position from the top */
-            transition: top 0.5s ease; /* Smooth transition */
-            z-index: 1000; /* Ensure it appears above other elements */
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
-        
+        html {
+            scrollbar-width: none;
+        }
+        body {
+            -ms-overflow-style: none;
+        }
+        .lift-section {
+            position: fixed;
+            right: 10px;
+            top: 20px;
+            transition: top 0.5s ease;
+            z-index: 1000;
+        }
         .lift-image {
-            width: 50px; /* Set a small size for the image */
-            height: auto; /* Maintain aspect ratio */
+            width: 50px;
+            height: auto;
         }
     </style>
-    
-    <!-- Lift Image Section Start -->
     <div class="lift-section">
         <img src="lift.gif" alt="Lift" class="lift-image" />
     </div>
-    <!-- Lift Image Section End -->
-    
     <script>
-        const liftImage = document.querySelector('.lift-image');
-        const originalSrc = 'lift.gif';
-        const newSrc = 'lift.png';
-        let scrollTimeout;
+const liftImage = document.querySelector('.lift-image');
+const originalSrc = 'lift.gif';
+const newSrc = 'lift.png';
+let scrollTimeout;
+
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY; 
     
-        window.addEventListener('scroll', function() {
-            const scrollY = window.scrollY; // Get the current scroll position
+    // Update the top position of the lift image based on scroll position
+    document.querySelector('.lift-section').style.top = `${scrollY + 20}px`; // Keep it directly related to scroll position
     
-            // Adjust the top position of the lift image based on scroll position
-            const newTop = Math.min(scrollY + 20, window.innerHeight - 70);
-            document.querySelector('.lift-section').style.top = newTop + 'px'; // Keep it within the viewport
-    
-            // Change the image source based on scroll position
-            if (scrollY > 100) {
-                liftImage.src = newSrc;
-            } else {
-                liftImage.src = originalSrc;
-            }
-    
-            // Clear the timeout if scrolling continues
-            clearTimeout(scrollTimeout);
-    
-            // Set a timeout to revert the image when scrolling stops
-            scrollTimeout = setTimeout(() => {
-                liftImage.src = originalSrc;
-            }, 200); // Adjust this value for the delay before switching back
-        });
+    // Change the image source based on scroll position
+    if (scrollY > 100) {
+        liftImage.src = newSrc;
+    } else {
+        liftImage.src = originalSrc;
+    }
+
+    // Clear the timeout if scrolling continues
+    clearTimeout(scrollTimeout);
+
+    // Set a timeout to revert the image when scrolling stops
+    scrollTimeout = setTimeout(() => {
+        liftImage.src = originalSrc;
+    }, 200); 
+});
     </script>
-    
+    <!-- Lift Image Section End -->
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
