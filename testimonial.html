@@ -29,7 +29,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -76,7 +75,7 @@
         const originalSrc = 'lift.gif';
         const newSrc = 'lift.png';
         let scrollTimeout;
-
+            
         window.addEventListener('scroll', function() {
             const scrollY = window.scrollY; 
             const documentHeight = document.documentElement.scrollHeight - window.innerHeight; // Total scrollable height
@@ -101,6 +100,7 @@
         });
     </script>
     <!-- Lift Image Section End -->
+
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
@@ -151,9 +151,9 @@
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu m-0">
                             <a href="price.html" class="dropdown-item">Pricing Plan</a>
-                            <a href="feature.html" class="dropdown-item active">Our features</a>
+                            <a href="feature.html" class="dropdown-item">Our features</a>
                             <a href="team.html" class="dropdown-item">Team Members</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="testimonial.html" class="dropdown-item active">Testimonial</a>
                             <a href="quote.html" class="dropdown-item">Free Quote</a>
                         </div>
                     </div>
@@ -167,10 +167,10 @@
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
             <div class="row py-5">
                 <div class="col-12 pt-lg-5 mt-lg-5 text-center">
-                    <h1 class="display-4 text-white animated zoomIn">Features</h1>
+                    <h1 class="display-4 text-white animated zoomIn">Testimonial</h1>
                     <a href="" class="h5 text-white">Home</a>
                     <i class="far fa-circle text-white px-2"></i>
-                    <a href="" class="h5 text-white">Features</a>
+                    <a href="" class="h5 text-white">Testimonial</a>
                 </div>
             </div>
         </div>
@@ -197,61 +197,66 @@
     <!-- Full Screen Search End -->
 
 
-    <!-- Features Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
-                <h1 class="mb-0">Elevator Solutions That Elevate Your Experience
-</h1>
+    <!-- Testimonial Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-primary text-uppercase">Testimonials</h5>
+            <h1 class="mb-0">What Our Clients Say About Our Elevator Services</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.6s">
+            <div class="testimonial-item bg-light my-4">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h4 class="text-primary mb-1">John Doe</h4>
+                        <small class="text-uppercase">Building Manager</small>
+                    </div>
+                </div>
+                <div class="pt-4 pb-5 px-5">
+                    "The installation process was smooth and the team was highly professional. Our elevators are now running better than ever!"
+                </div>
             </div>
-            <div class="row g-5">
-                <div class="col-lg-4">
-                    <div class="row g-5">
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-cubes text-white"></i>
-                            </div>
-                            <h4>Industry Leaders</h4>
-                            <p class="mb-0">With unparalleled expertise, we set the standard for quality and innovation in elevator systems. Our commitment to excellence ensures you receive the best service available.</p>
-                        </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-award text-white"></i>
-                            </div>
-                            <h4>Award-Winning Service</h4>
-                            <p class="mb-0">Recognized for our outstanding solutions and customer satisfaction, we take pride in delivering award-winning elevator services tailored to your needs.</p>
-                        </div>
+            <div class="testimonial-item bg-light my-4">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h4 class="text-primary mb-1">Jane Smith</h4>
+                        <small class="text-uppercase">Property Owner</small>
                     </div>
                 </div>
-                <div class="col-lg-4  wow zoomIn" data-wow-delay="0.9s" style="min-height: 350px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.1s" src="img/feature.jpg" style="object-fit: cover;">
+                <div class="pt-4 pb-5 px-5">
+                    "Their maintenance service is outstanding! They ensure everything runs safely and efficiently."
+                </div>
+            </div>
+            <div class="testimonial-item bg-light my-4">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h4 class="text-primary mb-1">Michael Lee</h4>
+                        <small class="text-uppercase">Architect</small>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="row g-5">
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-users-cog text-white"></i>
-                            </div>
-                            <h4>Award-Winning Service</h4>
-<h4>Expert Team</h4>
-                            <p class="mb-0">Our professional staff brings years of experience to every project, ensuring seamless installations and maintenance for your peace of mind.</p>
-                        </div>
-                        <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
-                            <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                                <i class="fa fa-phone-alt text-white"></i>
-                            </div>
-                            <h4>24/7 Support</h4>
-                            <p class="mb-0">We're always here for you. Our dedicated support team is available around the clock to assist with any inquiries or emergencies. Your safety and satisfaction are our top priorities.</p>
-                        </div>
+                <div class="pt-4 pb-5 px-5">
+                    "The modernization project exceeded our expectations. The new elevators look and operate beautifully!"
+                </div>
+            </div>
+            <div class="testimonial-item bg-light my-4">
+                <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+                    <img class="img-fluid rounded" src="img/testimonial-4.jpg" style="width: 60px; height: 60px;">
+                    <div class="ps-4">
+                        <h4 class="text-primary mb-1">Emily Carter</h4>
+                        <small class="text-uppercase">Facility Manager</small>
                     </div>
+                </div>
+                <div class="pt-4 pb-5 px-5">
+                    "I highly recommend their services. Professional, reliable, and always ready to assist!"
                 </div>
             </div>
         </div>
     </div>
-    <!-- Features Start -->
+</div>
+    <!-- Testimonial End -->
 
 
     <!-- Vendor Start -->
