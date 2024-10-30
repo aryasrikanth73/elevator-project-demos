@@ -148,114 +148,131 @@
         </nav>
         <style>
            .navbar-nav, .social-space {
-                padding-right: 150px;
+            padding-right: 150px;
+        }
+
+        body {
+            font-family: "Fira Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Desktop Gallery */
+        .gallery {
+            display: none; /* Hide gallery on small screens */
+        }
+        /* Show the gallery only on larger screens */
+        @media (min-width: 950px) {
+            .gallery {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                overflow: hidden;
+                max-width: 1300px;
+                margin: auto;
+                height: 100vh;
             }
+
+            .gallery__strip__wrapper {
+                flex: 0 0 25%;
+            }
+
+            .gallery__strip.one {
+                animation: 60s move-it ease alternate infinite 0.1s;
+                transform: translateY(2%);
+            }
+            .gallery__strip.two {
+                animation: 58s move-it-2 ease alternate infinite 0.1s;
+                transform: translateY(-50%);
+            }
+            .gallery__strip.three {
+                animation: 70s move-it ease alternate infinite 0.1s;
+                transform: translateY(2%);
+            }
+            .gallery__strip.four {
+                animation: 65s move-it-2 ease alternate infinite 0.1s;
+                transform: translateY(-50%);
+            }
+            .gallery__strip:hover {
+                animation-play-state: paused;
+            }
+        }
+
+        .gallery__strip {
+            min-height: 100vh;
+        }
+
+        .photo {
+            position: relative;
+            text-align: right;
+            padding-bottom: 3rem;
+        }
+
+        .photo__image img {
+            width: 90%;
+            transform: translateX(30%);
+            transition: 1s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+        }
+
+
+        .photo:hover .photo__image img {
+            transform: translateX(0%);
+        }
+        .photo:hover .photo__name {
+            color: #fff;
+        }
+
+        @keyframes move-it {
+            0%, 90%, 100% {
+                transform: translateY(2%);
+            }
+            45% {
+                transform: translateY(-50%);
+            }
+        }
+        @keyframes move-it-2 {
+            0%, 90%, 100% {
+                transform: translateY(-50%);
+            }
+            45% {
+                transform: translateY(5%);
+            }
+        }
+
+        /* Mobile Gallery */
+        .mobile-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .mobile-gallery img {
+            width: 90%;
+            max-width: 200px;
+            margin: 10px 0;
+        }
+
+        /* Adjust for a grid layout if preferred */
+        @media (min-width: 500px) {
+            .mobile-gallery {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .mobile-gallery img {
+                margin: 0;
+            }
+        }
+
+        @media (min-width: 950px) {
             
-
-            body {
-  font-family: "Fira Sans", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  overflow: hidden;
-  max-width: 1300px;
-  margin: auto;
-}
-.gallery__strip {
-  min-height: 100vh;
-}
-.gallery__strip__wrapper {
-  flex: 0 0 100%;
-  justify-content: flex-end;
-  background: #fff;
-  border-right: 2px solid #333;
-  position: relative;
-}
-
-@media (min-width: 500px) {
-  .gallery__strip__wrapper {
-    flex: 0 0 50%;
-  }
-}
-@media (min-width: 950px) {
-  .gallery {
-    height: 100vh;
-  }
-  .gallery__strip.one {
-    animation: 60s move-it ease alternate infinite 0.1s;
-    transform: translateY(2%);
-  }
-  .gallery__strip.three {
-    animation: 70s move-it ease alternate infinite 0.1s;
-    transform: translateY(2%);
-  }
-  .gallery__strip.two {
-    animation: 58s move-it-2 ease alternate infinite 0.1s;
-    transform: translateY(-50%);
-  }
-  .gallery__strip.four {
-    animation: 65s move-it-2 ease alternate infinite 0.1s;
-    transform: translateY(-50%);
-  }
-  .gallery__strip:hover {
-    animation-play-state: paused;
-  }
-  .gallery__strip__wrapper {
-    flex: 0 0 25%;
-  }
-}
-.photo {
-  position: relative;
-  text-align: right;
-  padding-bottom: 3rem;
-}
-.photo__image img {
-  width: 90%;
-  transform: translateX(30%);
-  transition: 1s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
-}
-.photo__name {
-  text-transform: uppercase;
-  font-size: 40px;
-  letter-spacing: 2px;
-  color: transparent;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  margin-top: -25px;
-  transition: 0.4s ease-in-out 0.4s;
-  position: relative;
-  width: 100%;
-}
-.photo:hover .photo__image img {
-  transform: translateX(0%);
-}
-.photo:hover .photo__name {
-  color: #fff;
-}
-
-@keyframes move-it {
-  0%, 90%, 100% {
-    transform: translateY(2%);
-  }
-  45% {
-    transform: translateY(-50%);
-  }
-}
-@keyframes move-it-2 {
-  0%, 90%, 100% {
-    transform: translateY(-50%);
-  }
-  45% {
-    transform: translateY(5%);
-  }
-}
+            .mobile-gallery{
+            display: none;
+        }
+        }
         </style>
 
         <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
@@ -512,6 +529,53 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Mobile Gallery -->
+  <div class="mobile-gallery">
+    <img src="img/gallery/ram-one-1.png" alt="Image 1">
+    <img src="img/gallery/ram-one-2.png" alt="Image 2">
+    <img src="img/gallery/ram-one-3.png" alt="Image 3">
+    <img src="img/gallery/ram-one-4.png" alt="Image 4">
+    <img src="img/gallery/ram-one-5.png" alt="Image 5">
+    <img src="img/gallery/ram-one-6.png" alt="Image 6">
+    <img src="img/gallery/ram-one-7.png" alt="Image 7">
+    <img src="img/gallery/ram-one-8.png" alt="Image 8">
+    <img src="img/gallery/ram-one-9.png" alt="Image 9">
+    <img src="img/gallery/ram-one-10.png" alt="Image 10">
+    <img src="img/gallery/ram-one-11.png" alt="Image 11">
+    <img src="img/gallery/ram-one-12.png" alt="Image 12">
+    <img src="img/gallery/ram-one-13.png" alt="Image 13">
+    <img src="img/gallery/ram-one-14.png" alt="Image 14">
+    <img src="img/gallery/ram-one-15.png" alt="Image 15">
+    <img src="img/gallery/ram-one-16.png" alt="Image 16">
+    <img src="img/gallery/ram-one-17.png" alt="Image 17">
+    <img src="img/gallery/ram-one-18.png" alt="Image 18">
+    <img src="img/gallery/ram-one-19.png" alt="Image 19">
+    <img src="img/gallery/ram-one-20.png" alt="Image 20">
+    <img src="img/gallery/ram-one-21.png" alt="Image 21">
+    <img src="img/gallery/ram-one-22.png" alt="Image 22">
+    <img src="img/gallery/ram-one-23.png" alt="Image 23">
+    <img src="img/gallery/ram-one-24.png" alt="Image 24">
+    <img src="img/gallery/ram-one-25.png" alt="Image 25">
+    <img src="img/gallery/ram-one-26.png" alt="Image 26">
+    <img src="img/gallery/ram-one-27.png" alt="Image 27">
+    <img src="img/gallery/ram-one-28.png" alt="Image 28">
+    <img src="img/gallery/ram-one-29.png" alt="Image 29">
+    <img src="img/gallery/ram-one-30.png" alt="Image 30">
+    <img src="img/gallery/ram-one-31.png" alt="Image 31">
+    <img src="img/gallery/ram-one-32.png" alt="Image 32">
+    <img src="img/gallery/ram-one-33.png" alt="Image 33">
+    <img src="img/gallery/ram-one-34.png" alt="Image 34">
+    <img src="img/gallery/ram-one-35.png" alt="Image 35">
+    <img src="img/gallery/ram-one-36.png" alt="Image 36">
+    <img src="img/gallery/ram-one-37.png" alt="Image 37">
+    <img src="img/gallery/ram-one-38.png" alt="Image 38">
+    <img src="img/gallery/ram-one-39.png" alt="Image 39">
+    <img src="img/gallery/ram-one-40.png" alt="Image 40">
+</div>
+
+
   <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <!-- Footer Start -->
